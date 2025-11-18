@@ -1,0 +1,69 @@
+/* 
+選擇器
+
+通用選擇器:星號「*」所有元素
+
+元素選擇器:元素標籤 ( h1、h2、p、a...等 )
+
+ID 與 Class 選擇器:ID 使用「#」開頭，class 使用「.」開頭
+
+屬性選擇器:表示「HTML 元素的屬性」，可以選擇「具有某些屬性的元素，或某些屬性等於特定數值的元素」，ex:h2[class] 
+
+文件結構選擇器:HTML 元素上下層的結構關係，「+」表示元素的「下一個元素」(同一層)，「>」表示「元素裡的下一層元素」(下一層)，「空格」代表全部，包含這一層與下一層與下下一層
+
+取代符號（~）:影響到下一個同階層的所有元素
+
+「+」與「~」共同點:同一層
+「+」與「~」差異: a+b：同一層中，a後面的第一個b
+                 a~b：同一層中，a後面的所有b
+
+*/
+
+/* 寫法順序有差異，會讀最後一個執行 */
+
+
+
+/* index03.html  css與html互動的寫法 */
+
+/* 
+如果要從css而外連結其他css的呼叫寫法
+
+連接color.css 
+@import "color.css";  
+*/
+
+p{
+    font-size: 50px;
+}
+
+.text03_color_index03{
+    color: black;
+}
+
+
+
+
+
+/* index04.html  選擇器 */
+*{
+    font-size: 30px;
+    color: black;
+}
+
+.text01_color_index04{
+    color: red;
+}
+
+
+/* 
+有空格 ol :only-child  這一層與下一層全部
+沒空格  li:nth-child(2n) 同一層 
+*/
+ol :only-child{
+    color: brown;
+}
+
+li:nth-child(2n) {
+    color: red;
+}
+

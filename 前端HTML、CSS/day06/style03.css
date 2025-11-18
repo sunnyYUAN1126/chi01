@@ -1,0 +1,200 @@
+/* .box{
+    width: 200px;
+    height: 200px;
+
+    background: #000;
+    border-left: 50px solid #d05c5c;
+    border-top: 50px solid #399f38;
+    border-right: 50px solid #7f4e59;
+    border-bottom: 50px solid #7f4e59;
+} */
+
+.box{
+    /* width: 200px;
+    height: 200px; */
+    width: 0px;
+    height: 0px;
+    /* border-left: 50px solid #d05c5c; */
+    /* border-top: 50px solid #399f38; */
+    border-right: 200px solid transparent;
+    border-bottom: 100px solid #7f4e59;
+}
+
+.box{
+
+    width: 0px;
+    height: 0px;
+    border-left: 100px solid transparent;
+    /* border-top: 50px solid #399f38; */
+    border-right: 100px solid transparent;
+    border-bottom: 300px solid #7f4e59;
+} 
+
+
+.box02{
+    width: 100px;
+    height: 100px;
+    background: black;
+    clip-path: polygon(0% 0%,100% 50%,0% 100%); /*三角形的三個點*/
+}
+
+/* -------------------------------------------------- */
+.card{
+    background: pink;
+    width: 50%;
+    padding: 50px;
+    box-sizing: border-box;
+    position: relative;
+    margin: 10px;
+    overflow: scroll;
+}
+.new::after{
+    content: "new";
+    padding: 5px 10px;
+    background: #000;
+    color: aliceblue;
+    position: absolute;
+    left: -10px;
+    top: 5px;
+}
+/* -------------------------------------------------- */
+
+.msg{
+    width: 300px;
+    background: gray;
+    color: wheat;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+/* ms::before為msg第一個小孩，ms::after為msg最後一個小孩 */
+.msg::before, .msg::after{
+    content: "HI";
+    color: red;
+}
+.msg::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 100px solid gray;
+    border-top: 50px solid transparent;
+    border-bottom: 30px solid transparent;
+    position: absolute;
+    right: -50px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+/* -------------------------------------------------- */
+.box02{
+    width: 100px;
+    height: 100px;
+    background: black;
+    clip-path: polygon(0% 0%,100% 50%,0% 100%); /*三角形的三個點*/
+
+    transition: background 1s 1s, width 1s; /*換顏色 漸變動畫 地1個s幾秒便顏色幾秒 ， 先動畫後顏色:地2個S延遲*/
+    
+    transition: background 1s 1s, width 1s, linear 1s; /*動畫linear、動畫也可以用這個cubic-bezier*/
+    
+    transition: all 1s;
+}
+.box02:hover{
+    width: 200px;
+    background: pink;
+}
+
+.circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+.img{
+    width: 100%;
+}
+/* -------------------------------------------------- */
+/* 
+transform:
+translate() 
+*/
+
+.box03{
+    width: 100px;
+    height: 100px;
+    background: rebeccapurple;
+    /* transform: scale(0.5); */
+    /* transform: translate(40px); */
+    transform: rotate(45deg) translate(0px,50px);
+    transition: all 1s;
+    
+}
+.box03:hover{
+    transform: rotate(45deg);
+
+}
+/* -------------------------------------------------- */
+/* 
+transform: 
+rotate(deg)
+animation: 
+linear */
+
+.box04 , .box04_2{
+    width: 100px;
+    height: 100px;
+    border-top: 5px solid #000;    
+    border-bottom: 5px solid #000;  
+    border-left: 5px solid transparent;  
+    border-right: 5px solid transparent;  
+    border-radius: 50%;
+    transform: rotate(0deg);
+    animation: ro 1s  infinite linear;
+}
+.box04_2{
+    animation: ro 1s .5s infinite /*.5延遲*/
+}
+
+/* @keyframes ro{
+    from{
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+} */
+@keyframes ro{
+    0%{
+        transform: rotate(0deg);
+    } 50% {
+        transform: rotate(360deg);
+    } 100%{
+        transform: rotate(0deg);
+    }
+}
+
+/* -------------------------------------------------- */
+/* 
+flex-grow: 
+flex-shrink:
+order: */
+.box05{
+    display: flex;
+    background: black;
+    width: 500px;
+    height: 500px;
+}
+
+.small_box05{
+    width: 100%;
+    height: 100px;
+    background: pink;
+    border: 1px solid gray;
+    flex-shrink: 2;
+}
+.small_box06{
+    width: 100%;
+    height: 100px;
+    background: orange;
+    border: 1px solid gray;
+    order:-1;
+}

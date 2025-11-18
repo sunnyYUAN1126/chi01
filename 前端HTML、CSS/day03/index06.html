@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下午css</title>
+
+    <!-- 
+    這裡是直接在html設定css的設定     
+    <style>
+        p{
+            font-size: 100px;
+        }
+        .text_color{
+            color: black;
+        }
+    </style> 
+    -->
+ 
+    <link rel="stylesheet" href="style.css"><!-- 帶入css檔案，匯入css設定 -->
+    
+</head>
+
+<body>
+     <!-- 內行樣式 -->
+
+    <!-- style="color: red;這就是css -->
+    <!-- css要有:再有; 不然會很慘 -->
+    <h1 style="color: red; font-size: 100px;">css</h1>
+    
+
+ 
+    <!-- 根據css的<style>設定變色 -->
+    <p class="text_color" id="id_name">1234</p>
+    <p class="text_color">123</p>
+    
+    <p class="text_color">
+        <strong>12300</strong>555 <!-- p標籤可以繼承 --> 
+    </p>
+    <!-- tag>*>繼承 如果有*，繼承顏色依照*顏色；如果沒有*，會繼承tag顏色 -->
+    
+    <strong>12300</strong>
+    <!-- 依照*顏色 -->
+
+    
+
+--------------------------------------------------
+(1)
+    <ul>
+        <li>ol_item</li>
+           <li>item
+            <ol>
+                <li>123</li>
+                <li>123</li>
+                <li>123</li>
+           </ol>
+           </li>
+        <li>ol_item</li>
+        <li>ol_item</li>
+        <li>ol_item</li>
+        <li>ol_item</li>
+    </ul>
+--------------------------------------------------
+(2)
+    <ul>
+        <li class="pick_me">ol_item</li>
+           <li>item
+            <ol>
+                <li>123</li>
+                <li>123</li>
+                <li>123</li>
+           </ol>
+           </li>
+        <li>ol_item</li>
+        <li>ol_item</li>
+        <li>ol_item</li>
+        <li>ol_item</li>
+    </ul>
+    --------------------------------
+    (3)
+    <form action="">
+        <input type="text">
+        <input type="pass">
+    </form>
+    --------------------------
+    (4)
+        <ul>
+        <li>item_1</li>
+        <li>item_2</li>
+        <li>item_3</li>
+        <li>item_4</li>
+        <li>item_5</li>
+        <li>item_6</li>
+        <li>item_7</li>
+        <li>item_8</li>
+        <li>item_9</li>
+        <li>item_10</li>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+    </ul>
+    
+   
+
+    
+
+
+
+    
+</body>
+</html>

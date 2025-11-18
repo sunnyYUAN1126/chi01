@@ -1,0 +1,74 @@
+/* body{
+    width: 100%;
+} */
+body{
+    background: rgba(246, 238, 238, 0.892);
+}
+.nom{
+    width: 600px;
+    background: rgb(167, 167, 239); 
+
+
+    padding:40px;
+    border: 20px solid rgba(255, 255, 255, 0.2); 
+    margin: 30px;
+
+}
+
+.nom2{
+    width: 300px;
+    border: 20px  solid red;
+    margin: 50px 30px;
+}.c1{
+    width: 100%; /* 父層已經有設定好背景大小，這裡子層就可以依照父層設定多少% */
+    padding: 10px;
+    border: 10px  solid rgb(157, 178, 214);
+    box-sizing: border-box;
+    /* margin: 30px; 會跑掉*/
+    
+}
+
+
+.nom3_1{
+    background: pink;
+    padding: 10px;
+    display: inline-block;
+}
+
+.nom3_2{
+    width: 600px;
+    background: pink;
+    /* padding: 5px; */
+    margin: 10px;
+    display:block;
+}.nom3_2 li{
+    width: 100px; 
+    line-height: 50px;
+    background: rgb(244, 180, 70);
+    display: inline-block; 
+    /* padding: 5px;
+    margin: 10px; 
+    也是會執行 */
+}
+
+/* 解決 inline-block 之間空白縫隙的技巧 */
+/* 
+font-size: 0; 👉 用來消除 inline-block 的縫隙。
+font-size: 16px; 👉 再把子元素的文字大小設回來，不然字會消失。
+ */
+.nom3_3{
+    width: 600px;
+    background: pink;
+    display: block;
+    margin: 10px;
+
+    font-size: 0;
+}.nom3_3 li{
+    width: 100px;
+    line-height: 50px;
+    background: rgb(244, 180, 70);
+    display: inline-block;
+
+    font-size: 16px;
+
+}

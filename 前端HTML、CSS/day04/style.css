@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+
+
+p.box{
+    font-family: Arial, Helvetica, "Noto Sans TC", "Microsoft jhengHei",sans-serif; /* 字體/字型設定 */
+
+    /* 十六進位 */
+    font-weight: 700; /* 字體重量，字重 */
+    color: red; 
+    color: #f00;
+
+    /* RGB*/
+    color: rgb(255, 0, 0); 
+    /* rgba 透明度*/
+    color: rgba(255,0,0, 0.5); 
+    color: hsl(11, 99%, 51%);
+    /* 加透明度 */
+    background: hsla(148, 42%, 46%, 0.8);  
+    /* background: hsla(148 42% 46% /0.8);  設定不透明度:不加逗號的寫法要有斜線*/ 
+
+    
+    /* 設定字的透明度 */
+    opacity: 0.8;
+    
+}
+
+p.box01{
+    font-family: Arial, Helvetica, "Noto Sans TC", "Microsoft jhengHei",sans-serif;
+    font-size: 20px;
+    font-style: italic; /*斜體*/
+    font-weight: 900;
+    line-height: 1.5; /*行高*/
+    text-align: center; /*文字對齊:向左右對齊*/
+    vertical-align: middle; /*文字對齊:向上下對齊*/
+    text-decoration: underline;
+    text-indent: 20px; /*凸排*/
+    background: pink;
+    /* 有內文，定寬不定高 */
+    width: 50vw;
+    /* height: 200px; */
+ }
+.box01>span{
+    font-size: 2.5em;
+}
+
+p.box02{
+    font-size: 50vw;
+}
+p.box03{
+    font-size: 50vh;
+}
+
+/* 
+sans-serif 無襯線體
+serif 有襯線體 */
+/* 
+字體順序: 先英文 後中文，因為中文有包含英文
+備用: 如果第一個自型失效，後加在加一個備用字型 */
+
+/* 十六進位色碼  
+色碼數字: 0123456789abcdef
+RGB:(2位)R、 (2位)2G、 (2位)2B 
+簡寫
+#ffffff ->#fff
+#ff0000 ->#f00
+
+RGB色光
+色碼數字:  0~255
+rgb(255,255,255)
+
+rgba
+色碼數字: 0~1
+rgba(255,255,255, 0.5)
+
+hsl色向 (360度)
+色向數字: 0~359
+飽和度:0~100
+亮度:0~100
+hsl(hue, saturation, lightness);
+hsl(120, 50%, 50%)
+hsla(120, 50% ,50%, 0.5)
+hsla(120 50% 50% / .5) 設定不透明度:如果不逗號要加斜線
+hsl(hue, saturation, lightness, alpha);
+alpha，經常都會聽到使用「透明度」來稱呼它，但其實「不透明度」反倒更適合它，
+alpha值採用0~1之間的數字來表示，並可使用小數點，1表示100%的不透透明度，0表示0%的不透明度 */
+
+/* 
+font-family:第一種字體, 第二種字體, "第三種 字體", "通用字"; 設定字體
+
+font-size: 設定文字大小
+單位
+px 絕對單位
+
+相對單位 
+em 相對於「父層」
+%  相對於「父層」
+rem 相對於「根元素」
+vw  相對於視窗寬度
+vh  相對於視窗高度 
+
+
+font-style: 文字樣式​ 預設、斜體
+font-weight:文字粗細、字體重量
+
+
+text-align: 水平對齊 左右對齊、靠右對齊、靠左對齊
+text-decoration: 設定文字的裝飾 底線 刪除線 波浪線
+text-indent: 段落文字做縮排(-負)與凸排
+
+line-height: 腳本間距 2倍行高
+
+vertical-align: 垂直對齊
+*/
+
+
+
+

@@ -1,0 +1,59 @@
+nav{
+    background: #222;
+    padding: 0 20px;
+}
+.menu{
+    text-align: center;
+}
+
+.menu_item{
+    display: inline-block;
+    color: #fff;
+    line-height: 50px;
+    padding: 0 10px;
+}
+
+
+/* one col */
+.section{
+    margin: auto;
+    text-align: center;
+    padding: 40px 0;
+}
+.section img{
+    display: block;
+    width: 500px;
+    margin: auto;
+}
+.title{
+    font-size: 30px;
+    color: orange;
+    line-height: 50px;
+}
+.subtitle{
+    font-size: 24px;
+    color: rgb(77, 156, 224);
+}
+.btn_set{
+    padding: 20px 0;
+}
+.btn{
+    border:1px solid orange;
+    font-size: 20px;
+    color:orange;
+    line-height: 40px;
+    display: inline-block;
+    border-radius: 25px;
+    padding: 0 20px;
+}
+
+/* 黑色背景 */
+.black_container{
+    background: #222;
+
+}
+.black_container .btn{
+    background: #fff;
+    border: 1px solid #fff;
+    color: #222;
+}

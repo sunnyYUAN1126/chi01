@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Noto+Sans+TC:wght@400&display=swap');
+
+
+.box01{
+    /* width: 1500px; */
+    background: rgb(38, 38, 38);
+    text-align:center;
+    display: block;
+}
+.box01 li{
+    width: 100px;
+    line-height: 50px;
+    background: rgb(38, 38, 38);
+    color: white;
+    text-align:center;
+    display: inline-block;
+}
+.box02i{
+    width: 1500px;
+    height: 400px;
+    background: black;
+    background-image: url("photo_apple01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box02{
+    width: 1500px;
+    background: black;
+    text-align:center;
+    
+
+}.box02 h2{
+    font-family: "Noto Sans TC", sans-serif;
+    line-height: 50px;
+    color: rgb(115, 173, 239);
+    font-size: 32px;
+    text-align:center;
+    padding: 30px;
+    display: block;
+
+}.box02 p{
+    color: rgb(245, 245, 247);
+    font-family: "Noto Sans TC", sans-serif;
+    direction: ltr;
+    display: block;
+    line-height: 50px;
+    background-position: center;
+}
+
+.box02 .button01{
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    background: rgb(255, 255, 255);
+    color: black;
+    direction: ltr;
+    display: inline-block;
+    margin: 30px;
+    text-align:center;
+}
+
+.box03{
+    width: 1500px;
+    background: white;
+    display: inline-block;
+    text-align: center;
+}
+.box03 h2{
+    display: block;
+    color: black;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 50px;
+    text-align:center;
+    padding: 50px;
+}
+.box03 p{
+    display: block;
+    color: black;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 30px;
+    text-align:center;
+    padding: 10px;
+
+}
+.box03 li{
+    display: inline-block;
+    width: 300px;
+    line-height: 100px;
+    background: rgb(171, 171, 195);
+    text-align: center;
+    font-size: 30px;
+    margin: 10px;
+}
+.box03i{
+    width: 1500px;
+    height: 1000px;
+    background: white;
+    background-image: url("photo_apple02.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box04{
+    width: 1500px;
+    background: white;
+    display: inline-block;
+    text-align: center;    
+}
+.box04 div{
+    width: 600px;
+    height: 600px;
+    display:  inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box04 img{
+    width: 600px;
+    height: 600px;
+    display:  inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+}

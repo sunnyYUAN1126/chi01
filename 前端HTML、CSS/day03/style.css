@@ -1,0 +1,118 @@
+/* 連接color.css */
+/* @import "color.css"; */
+
+/* 寫法順序有差異，會讀最後一個執行 */
+
+/* !important>inLine>id>class>tag(p標籤)>*(全部)>繼承  */
+p{ /* 這是p標籤 */
+   font-size: 50px;
+   background-color: pink;
+}
+
+
+.text_color{  /* 類似函數/方法 */
+    color: blue;
+}
+
+
+#id_name{ /* 指定id */
+    background: orange;
+}
+
+*{  /* 全部的東西  */
+    color: red;
+} 
+
+p,h1{
+    color:gray;
+}
+
+/* p.text_red.text_color這是一個人 */
+p.text_red.text_color, h1{
+    color: red;
+}
+
+
+ /* 
+ <p class="text_color">
+        <strong>12300</strong>
+</p> 
+*/
+p strong{
+    color: bisque;
+}
+
+
+ ------------ 
+(1)
+
+*{ 
+   color: pink;
+}
+
+
+ul>li{
+   color: red;
+}
+ ----------- 
+(2)
+*{ 
+   color: black;
+}
+
+
+.pick_me + li {
+   color:blue;
+}
+-----------------------
+(3)
+選取屬性，給予顏色
+[type='text'] {
+   color: aqua;
+}
+-------------------
+
+ul li ul(空格)li 全部，所有的子孫小孩 同一層
+
+ul>li li的爸爸是ul，下一層
+
+a(哥哥)~b(弟弟)  b改顏色 or
+a(哥哥)+b(弟弟)  b改顏色 and
+--------------------
+*{
+   color: black;
+}
+
+ul :first-child{ 有空格
+   color: aquamarine;
+-------------------------
+*{
+   color: black;
+}
+
+ul>:first-child{
+   color: aquamarine;
+
+nth-child(3n)
+地3個
+
+nth-child(3n+1)
+第3個小孩中第1個
+
+nth-child(odd) 基數
+nth-child(even)偶數
+
+
+----------------------------
+(4)
+*{
+   color: black;
+}
+
+ul :nth-of-type(even){
+   color: aquamarine;
+}
+
+ul :nth-child(even){
+   color: aquamarine;
+}

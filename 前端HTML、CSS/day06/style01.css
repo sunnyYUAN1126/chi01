@@ -1,0 +1,202 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+
+/* --------------------------------------------------------- */
+
+
+span{
+    background: rgb(154, 70, 84);
+    top: 50px;
+    /* bottom: 0px; */
+
+    right: 100px;
+
+
+    position: static;
+    /* 不能吃到定位設定(他只會站在他出生的地方)，會佔有空間 */
+
+    position: relative;
+    /* 可以吃到定位空間，會佔有空間，移動的標準是以自己出生的位置為基準 */
+
+    position: absolute;
+    /* 可以吃到定位設定，不會會佔有空間，移動的位置以父層為主，父層不可以為 static */
+
+    position: fixed;
+    /* 可以吃到定位設定，不會會佔有空間，移動的位置以視窗為主 */
+
+}
+/* --------------------------------------------------------- */
+
+/*  align-content: flex-start;
+    align-items: center; */
+.box01{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #000;
+    align-content: flex-start;
+    align-items: center;
+}
+.small_box01{
+    width: 100px;
+    height: 100px;
+    background: pink;
+}
+.small_box01:first-child{
+    height: 150px;
+    /* margin: 0 auto; */
+}
+/* --------------------------------------------------------- */
+
+/* margin: auto; */
+.box02{
+    width: 500px;
+    height: 500px;
+    background: gray;
+    position: relative;
+
+}
+.small_box02{
+    width: 100px; /*子寬/父寬*100=百分比*/
+    height: 100px;
+    background: pink;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    inset: 0;
+    position: absolute;
+    margin: auto;
+}
+/* --------------------------------------------------------- */
+
+/* 
+父 width:1000px
+子 width: cal(50%-20%) */
+
+.box03{
+    width: 100%;
+    height: 300px;
+    background: black;
+}
+.small_box03{
+    width: 30%; 
+    height: 100px;
+    background: pink;
+}
+/* --------------------------------------------------------- */
+.box04{
+    background: gray;
+    width: 100%;
+    height: 500px;
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+}
+/* calc() 的運算子（+ - * /）前後一定要有空白。 */
+.small_box04{
+    background: pink;
+    width: calc(100% / 3 - 10px); 
+    /* height: 200px; */
+    padding: 10px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+/* --------------------------------------------------------- */
+/* 
+變數
+建立方式:
+root{
+    --col:5;
+}
+呼叫方式:
+var(--col) 
+*/
+
+@media screen and (max-width: 800px){
+    .small_box04{
+        width: calc(100%-10px);
+    }
+}
+
+
+/* 文字屬性會被繼承 */
+/* 
+響應式設計
+
+條件越嚴格要寫在下面
+不低於800先 @media screen and (max-width: 800px)
+不低於700後 @media screen and (max-width: 700px) 
+
+平板 768*1024
+桌機 1920/1440/1200
+
+768以下 手機 sm
+768以上 手機垂直 md
+1024以上 平板播放、筆電 lg
+1200以上 桌機 xl
+1400以上 大螢幕 xxl
+*/
+
+/* 手機先決 */
+/* 手機板的樣式 由小血大*/
+@media screen and (width >= 768px){
+    /* 平板樣式 */
+}
+@media screen and (width >= 1024px){
+    /* 筆電樣式 */
+}
+@media screen and (width >= 1200px){
+    /* 桌機樣式 */
+}
+@media screen and (width >= 1400x){
+    /* 大螢幕樣式 */
+}
+
+
+/* 桌機先決 */
+/* 大螢幕的樣式 由大寫小 */
+@media screen and (width < 1400px){
+    /* 桌機樣式 */
+}
+@media screen and (width < 1200px){
+    /* 筆電樣式 */
+}
+@media screen and (width < 1024px){
+    /* 平板樣式 */
+}
+@media screen and (width < 768x){
+    /* 手機樣式 */
+}
+
+/* --------------------------------------------------------- */
+/* 超連結點即 */
+/* 這裡順序不能動，時間越短放後面才能被看到 */
+a{
+    color: gray;
+}
+a:visited{
+    color: orange;
+}
+a:focus{
+    color: pink;
+}
+a:hover{
+    color: wheat;
+    background: pink;
+}
+a:active{
+    color: red;
+    background: black;
+}
+/* --------------------------------------------------------- */

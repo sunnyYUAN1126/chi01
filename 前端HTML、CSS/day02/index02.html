@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java下午</title>
+</head>
+<body>
+<!-- 表格標籤 -->
+    <table border="1"> <!--通常不會用border做表格，會用css做出來 -->
+      <caption>表格標題</caption>
+<!-- <tr>是代表 表格區在同一行 -->
+<!-- th表格內標題  td表格內內文 -->
+<!-- 如果沒有設定表頭thead、表體tbody、表尾tfoot，預設為表體tbody
+      如果用預設tobdy，然後使用css，會出問題 -->
+    
+    <thead><!-- 表頭thead -->
+        <tr>
+            <th scope="row">星期</th>
+            <th scope="col">星期一</th>
+            <th scope="col">星期二</th>
+            <th scope="col">星期三</th>
+            <th scope="col">星期四</th>
+            <th scope="col">星期五</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <!-- colspan、rowspan跨欄 -->
+        <tr>
+           <th scope="row">上午</th>
+           <td colspan="2">跑步</td>
+           <td>睡覺</td>
+           <td>睡覺</td>
+           <td>睡覺</td>
+        </tr>
+     
+        <tr>
+           <th cope="row">下午</th>
+           <td>工作-8hr</td>
+           <td>工作-8hr</td>
+           <td colspan="2" rowspan="2">工作-8hr</td>  <!-- colspan、rowspan這裡跨欄4格 -->  
+           <td rowspan="2">工作-8hr</td>
+        </tr>
+
+        <tr>
+           <th cope="row">晚上</th>
+           <td>吃飯</td>
+           <td>吃飯</td>
+        </tr>
+<!-- 快速按鍵
+     ctrl+d 向下選取 功能:同時選取重複的字並修改重複值
+     ctrl+方向鍵 滑鼠在同一行 功能:加入重複值
+     同時選取後面</td>加入重複值，如果是td而以會是左右全部的td -->
+        <tr>
+            <th>其他</th>
+            <td>123-000</td>
+            <td>653-000</td>
+            <td>556-000</td>
+            <td>985-000</td>
+            <td>56823-000</td>
+         </tr>
+
+    </tbody>
+    
+      <tfoot><!-- 表尾tfoot -->
+        <tr>
+           <td colspan="6">2025/09/02</td>
+        </tr>
+     </tfoot>       
+      
+    </table>
+
+<br>
+-----------------------------------------------------------------------------
+<br>
+
+<!-- 超連結標籤 -->
+
+<!-- 外部連結 -->
+    <a href="https://www.google.com" target="_blank">google</a>  <!-- target="_blank"開新分頁 -->
+
+<!-- 內部連結 -->
+    <a href="../day02/index01.html" target="_blank">回到index01</a>
+
+
+<!-- 連到 section ， #後面接id屬性的值-->
+    <a href="#link_here">連到h1</a>
+
+
+<!-- 內部的section -->
+    <a href="../day02/index01.html#link_here">index01 img</a>
+
+<!-- 打電話 -->
+    <a href="tel:0984000000">撥打電話</a>
+
+<!-- 寄 mail -->
+    <a href="mailto:school@gmail.com">mail</a>
+    
+<!-- 點圖片 -->
+    <a href="https://www.google.com" target="_blank">
+        <img width="100" src="../day02/img/photo02.jpg" alt="連結">
+    </a> 
+    
+    
+<br>
+-----------------------------------------------------------------------
+<br>
+
+
+ <header>
+ <!-- 頁首標籤 -->
+ <!-- 語意化標籤    -->
+  
+    <!-- 導覽列標籤 -->
+     <nav>
+        <ul>
+            <li>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+        </ul>
+     </nav>
+ </header>
+
+ <footer>
+    <!-- 頁尾標籤 -->
+     <nav>
+
+     </nav>
+ </footer>
+
+ <nav>
+    <!-- 網站導覽列 -->
+ </nav>
+
+<!-- 主要內容區塊 -->
+ <main>
+    
+ </main>
+
+<!-- 側邊攔區塊 -->
+ <aside>
+
+ </aside>
+
+<!-- 章區塊 -->
+ <article>
+    
+ </article>
+
+ <!-- 節 -->
+  <section>
+
+  </section>
+
+
+  <figure>
+     <img width="100" src="./photo01.jpg" alt="">
+     <figcaption>123解釋圖片或其他東西</figcaption>
+  </figure>
+
+  <!-- 區塊狀元素、包東西 -->
+  <div>
+    
+  </div>
+
+  <!-- 段落狀元素 -->
+  <span>
+    
+  </span>
+
+
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+
+    <h1 id="link_here">Hello</h1>
+    <a href="#">back to top</a>
+
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+    <p>內文</p>
+
+
+
+    
+
+
+    
+</body>
+</html>

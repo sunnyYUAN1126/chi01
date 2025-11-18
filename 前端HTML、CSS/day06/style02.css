@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* 選單範例 */
+body{
+    padding-top: 50px;
+}
+#taggle_bar{
+    display: none;
+}
+
+nav{
+    background-color: black;
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top:0;
+    left: 0;
+}
+.logo{
+    background: peru;
+    color: #eee;
+    line-height: 50px;
+    padding: 0 20px;
+}
+.bar {
+    color: #eee;
+    /* display: none; */
+}
+
+.menu{
+    display: flex;
+}
+.menu_item{
+    padding: 0 20px;
+    color: aliceblue;
+    line-height: 50px; /*呼應後後面submenu的初始高度*/
+    cursor: pointer; /*滑過去滑鼠變圖片*/
+    position: relative;
+}
+.menu_item:hover{
+    background: orange;
+}
+.menu_item:hover .submenu{
+    display: block;
+ }
+
+.submenu{
+    display: none;
+    position: absolute;
+    background: rgb(67, 62, 62);
+    left: 0;
+    top: 50px; /*呼應前面menu_item的高度*/
+}
+
+.submenu_item{
+    padding: 0 20px;
+}
+.submenu_item:hover{
+    background: #eee;
+    color: #000;
+}
+
+/* 手機:這裡是縮小後要的畫面 */
+@media screen and (width < 768px){
+
+    .bar{
+        display: block;
+        border: 5px solid #ffffff;
+        line-height: 40px;
+        padding: 0 10px;
+        border-radius: 5px;
+    }
+    .menu{
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: #000;
+        flex-direction: column;
+        display: none;
+    }
+    .submenu{
+        position: static;
+        display: block;
+        margin: 0 -20px;
+        width: calc(100%+40px);
+        background: peru;
+    }
+    #taggle_bar:checked~nav .menu{
+        display: block;
+    }
+
+}
+
+
+

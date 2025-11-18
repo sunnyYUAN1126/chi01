@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選擇器練習</title>
+
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+<!-- 權重:比大小 -->
+<!-- !important > inLine > id > class > tag(p標籤) > *(全部) > 繼承  -->
+    <p小 class="中" id="大"></p>
+
+    <p class="text01_color_index04">
+        <strong>12300</strong>555 <!-- p標籤可以繼承 --> 
+    </p> 
+    <!-- tag >「*」> 繼承  ，如果有「*」，繼承的顏色依照「*」顏色；如果沒有「*」，會繼承tag顏色 -->
+    
+
+    <strong>12300</strong>
+    <p>12</p>
+    <!-- 依照*顏色 --> 
+
+
+ 
+<!-- 
+有空格 plate :only-child  這一層與下一層全部
+沒空格  li:nth-child(2n) 這一層  
+-->
+    <ol>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ol>
+    <ol>
+        <li>item</li>
+    </ol>
+    <ol>
+        <li>item</li>
+    </ol>
+    <ol>
+        <li>item</li>
+        <li>item</li>
+    </ol>
+
+
+
+
+</body>
+</html>

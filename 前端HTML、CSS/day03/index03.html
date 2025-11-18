@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css與html互動的寫法</title>
+
+    <!-- 三種css與html互動的寫法: -->
+ 
+    <!--寫法二:這裡是直接在html設定css的設定-->
+    <!-- 寫法一與寫法二:不好管理、不好整理、權重關係不好處理 -->
+    <style>
+        p{
+            font-size: 50px;
+        }
+        .text02_color{
+            color: pink;
+        }
+    </style> 
+    <!-- 寫法三: 帶入css檔案，匯入css設定 -->
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <!-- 寫法一:style="color: red;這就是css -->
+    <h1 style="color: red; font-size: 50px;">寫法一</h1>
+
+    <!-- css要有:再有;  不然會很慘 -->
+    <!-- 根據css的<style>設定變色 -->
+    <p class="text02_color">寫法二</p>
+
+    <p class="text03_color_index03">寫法三</p>
+
+</body>
+</html>

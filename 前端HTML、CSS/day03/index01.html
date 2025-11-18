@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上午</title>
+</head>
+<body>
+    <!-- 表單 -->
+    
+     <form action="#" method="get">
+        <input type="text" name="text_1"> <!-- 輸入 -->
+        <input type="submit"> <!-- 提交 -->
+     </form>
+     <br>
+
+     <!-- type決定輸入形式 -->
+     <!-- 之後寫程式要有name，連接後端
+         name命名會根據資料的欄位屬性 -->
+     <form action="">
+        <p>
+            帳號:
+            <input type="text" name="input_text" placeholder="請輸入帳號" required >  <!-- placeholder預設字、required必填 -->
+        </p>  
+        <p>
+            密碼:
+            <input type="password" minlength="2" maxlength="5">
+        </p> 
+        <p>
+            數字:
+            <input type="number">
+        </p>  
+        <p>
+            電話:
+            <input type="tel">
+        </p> 
+        <p>
+            Email:
+            <input type="email">
+        </p>   
+        <p>
+            Url: <!-- 超連結 -->
+            <input type="url">
+        </p>
+        <p>
+            日期:
+            <input type="date">
+        </p>
+        <p>
+            時間:
+            <input type="time">
+        </p>
+        <p>
+            檢色器:
+            <input type="color">
+        </p>
+        <p>
+            Range: <!-- 範圍 -->
+            <input type="range" step="10" min="10" max="100">
+        </p>
+        <p>
+            File:
+            <input type="file">
+        </p>
+        <p>
+            <!-- 
+            name一樣，因為是同一題答案
+            value不一樣，因為要回傳後端的值
+            傳到後端會變成 checkBox=check_2;
+             -->
+            
+            複選框:
+            <!-- 三種使用者勾選框框方法: -->
+            <!-- (1)label可以觸發的區域，使用者方便點即 ， 且一個選項一個label框-->
+            <!-- (2)沒有用label使用者就只能使用預設框框 -->
+                              
+            <!-- 沒用label -->
+            <input type="checkbox" name="checkBox" value="check_1" checked>選項一(沒用label) <!-- checked預選 -->
+            
+            <!-- 有用label -->
+            <label>
+                <input type="checkbox" name="checkBox" value="check_2" checked>選項二(有用label)
+            </label>
+            <label>
+                <input type="checkbox" name="checkBox" value="check_3">選項三
+            </label> 
+
+                <input type="checkbox" name="checkBox" value="check_4"  checked id="check_id">選項四         
+        </p>
+            <br>
+            <label for="check_id">選項四(動聯選項，點他，選項四的勾勾會被勾起來)</label>
+            <!-- (3)動聯選項: label for與checked id-->
+
+        <br>
+        <p>
+            單選:
+            <label><input type="radio" name="radioBtn_1" value="radioBtn_1">單選一</label>
+            <label><input type="radio" name="radioBtn_1" value="radioBtn_2">單選二</label>
+            <label><input type="radio" name="radioBtn_1" value="radioBtn_3" checked>單選三</label>
+        </p>       
+        <p>
+            Search:
+            <input type="search">
+        </p>
+        <input type="submit" value="我是送出"> <!-- 提交、送出 -->
+        <input type="reset" value="清空表單">
+        
+        <!-- button有兩種寫法 -->
+        <input type="button" value="按鈕">
+        <button> 我是button標籤 </button>
+
+        <p>
+            下拉選單:
+            <select name="select_form" id="">
+                <option value="s_1">下拉一</option>
+                <option value="s_2">下拉二</option>
+                <option value="s_3" selected>下拉三</option><!-- selected預設 -->
+            </select>
+        </p>
+        
+     </form>
+</body>
+</html>

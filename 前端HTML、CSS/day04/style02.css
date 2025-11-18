@@ -1,0 +1,145 @@
+body{
+    width: 800px; 
+    height: 50px;
+    background: #000;
+}
+
+
+.box03 ul{
+    /* 父層 */
+    display:block;
+    /* text-align下在父層、文字這一層 */
+    text-align: center;
+    background: #aaa;
+    padding: 0 10px;
+
+    font-size: 0; /* 設定間間距 子層要補font-size: 16px;*/
+}
+.box03 li{
+    /* 子層 */
+    width: 100px; 
+    line-height: 100px;
+    background: pink;
+    display: inline-block; /* block可以塞寬高 */
+
+    font-size: 16px;
+
+}
+
+
+
+
+.box02{
+    width: 200px; 
+    height: 200px;
+    background: pink;
+    display: inline-block;
+}
+
+.box01{
+    width: 800px; 
+    height: 50px;
+    color: white;
+
+    
+/* border 邊框 */
+     /* (1個)邊框設定 */
+    border-left-color: #fd0505;
+    border-left-width: 10px;
+    border-style: solid;
+
+    /* (4個)每個邊框設定_簡寫 */
+    border-left: 10px solid rgb(224, 179, 179);
+    border-top: 10px solid rgb(222, 229, 172);
+    border-right: 10px solid rgb(207, 235, 194);
+    border-bottom: 10px solid rgb(213, 210, 242);
+
+    /* border: 20px solid #602; 簡寫、一次設定每個邊框、直接幫全部邊框設定好 */
+  
+    /* box-sizing: border-box;
+    box-sizing 的出現是用來調整區塊的內距與邊框計算方式，與 border 以及 padding 的設定有關
+    border-box 設定的寬度就已經包含內容寬度、 padding 與 border 寬度，所以內容不會超出元素自身的外框。
+    */
+
+/*  padding 內句 */
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+    padding: 10px 20px 30px 40px; 
+    /* 一次設定每個邊框、直接幫全部邊框設定好(順序:上、右、下、左) */
+
+    padding: 10px 50px; 
+    /* 上10 下10 右50 左50 ，會參考對面的值 */
+
+    padding: 0 50px 100px;
+    /* 所以照上面參考對面的值的原則，上0 下100 左右50右50 */
+
+    padding: 10px;
+    /* 上下左右都是10 */
+
+/* margin 外句 */
+    margin-top:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+
+    margin: 10px 20px 30px;
+    
+/* 內文文字<padding<border<margin */
+
+
+}
+
+.box{
+    width: 800px; 
+    height: 500px;
+
+    background: url("../day02/img/photo02.jpg") repeat-x center / 100px,
+    url("../photo03.jpg") repeat-y top / 100px ,
+    pink;
+    
+}
+
+/* .box{
+    width: 800px; 
+    height: 500px;
+    background-color: pink;
+    background-image: url("../photo03.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+/* .box{
+    width: 800px; 
+    height: 500px;
+    background-color: pink;
+    background-image: url("../photo03.jpg"),url("../day02/img/photo02.jpg");
+    background-size: 100px 100px,150px;
+    background-repeat: repeat-y,repeat-x;
+} */
+
+
+
+/* 
+.box{
+    width: 800px;
+    height: 500px;
+    background-color: pink;
+    background-image: url(../photo03.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}  
+*/
+
+/* 
+background-size: contain;
+cover會裁切到圖片 滿版背景會被裁切到
+contain不會裁切到圖片 背景會露出來 */
+
+/* 文字長寬設定:定寬不定高 */
+
+

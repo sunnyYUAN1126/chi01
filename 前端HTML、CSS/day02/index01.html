@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java上午</title>
+</head>
+
+<body>
+<!-- 圖片標籤 -->
+    <!-- img是單標籤 -->
+
+    <!-- 絕對路徑 -->
+    <img id="link_here" width="150" src="https://cdn.pixabay.com/photo/2025/08/17/22/55/samarkand-9780493_1280.jpg" alt="替代文字">
+    
+    <img src="https://cdn.pixabay.com/photo/2025/08/17/22/55" alt="替代文字">
+    <!-- 這是當圖片路徑沒有或不正確時，<alt="">會出現文字代替圖片的提示，以免網路畫面遺失 -->
+    
+    <!-- 相對路徑 -->  
+    <!-- 同層 -->
+    <!-- <./>代表在 這個位置 or 同一層
+          photo01.jpg = ./photo01.jpg -->
+    <img width="200" src="./photo01.jpg" alt="同層">
+    
+    <!-- 下一層 1點-->
+    <img width="200" src="./img/photo02.jpg" alt="下一層">
+     
+    <!-- 上一層 2點-->
+    <img WIDTH="200" src="../photo03.jpg" alt="">
+
+    <!-- 
+    設計圖片放在哪裡的資料夾不要太巢狀，會導致混亂，一個格式一個資料夾就好 
+
+    圖片格式:
+    jpg 檔案小、容易失真、無法做不透明背景
+    png 有透明度、可以存放的顏色多、檔案大、只能用RGB顏色、畫質佳
+         顏色差異:    
+         RGB  三色 會有色偏、給螢幕用的
+         CMYK 四色 給印刷廠用的
+    gif 小動畫、只有256個顏色、不能做明度、檔案小
+    apng gif+png的概念、檔案大、支援度低、有透明度
+    svg 不會有鋸齒，是滑順、細節多、向量圖、通常拿來做icom圖
+         相反:點陣圖(鋸齒)
+    WabP 檔案小、有透明度、支援度低、可以做動畫
+    -->
+
+    <br><br><br>
+    <!-- 多圖顯示 -->
+     <picture>
+        <!-- 限制出現寬度 -->
+        <source width="300" srcset="photo01.jpg" media="(min-width: 1000px)">  
+        <!-- min-width當寬度最小1000，也就是介於1000以上，顯示ph01圖，不是的話不執行 -->
+        <source srcset="../photo03.jpg" media="(max-width: 800px)"> 
+        <!-- max-width當寬度最大800，也就是介於800以下，顯示ph03圖，不是的話不執行 -->     
+        <img width="200" src="img/photo02.jpg" alt="如果這張圖失效不見，會出現這行文字">
+        <!-- 如果上兩張圖失效，會出現這圖片 -->
+
+        <br><br><br>
+        <source width="200" srcset="photo01.jpg" media="(min-width: 1000px) and (max-width: 800px)">
+        <img width="200" src="img/photo02.jpg" alt="沒有圖片">
+     </picture>
+
+     <video width="200" controls autoplay muted loop>
+        <source media="(min-width: 800px)" src="https://cdn.pixabay.com/video/2025/08/12/296958_large.mp4" >
+        <source media="(min-width: 600px)" src="https://cdn.pixabay.com/video/2025/06/24/287510_large.mp4" >
+        <!-- 影片只會根據一開使畫面判斷，跟圖片不一樣 -->  
+     </video>
+
+<!--  快速語法   
+         括號:        
+         {}大花
+         []中角
+         ()小 
+-->
+    
+
+        <!-- p之後{}直接寫內文，之後按tab按鍵 -->
+        <!-- p{內文} -->
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>1230</p>
+            
+        <!-- img[alt="替代文字"] -->
+        <img src="" alt="替代">
+
+        <!-- h1{標題}+p{內文} -->
+        <h1>標題</h1>
+        <p>內文</p>
+
+        <!-- h1{標題}+p{內文}+img[alt="替代文字"] -->
+         <h1>標題</h1>
+         <p>內文</p>
+         <img src="" alt="替代文字">
+
+         <!-- h1{標題}+p{內文}*3 -->
+        <h1>標題</h1>
+        <p>內文</p>
+        <p>內文</p>
+        <p>內文</p>
+
+<!-- 清單標籤 -->
+         <ol>
+            <p>ol 有順序</p>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+         </ol>
+
+         <ul>
+            <p>ul 無順序</p>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+         </ui>
+        
+        <!-- ol>li{item}*3 -->
+          <ol>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+         </ol>
+
+          <!-- ul*3>li{item}*3 -->
+           <ul>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+           </ul>
+           <ul>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+           </ul>
+           <ul>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+           </ul>
+
+
+        <!-- ul>li*3^ol>li*2   ^與()+()代表同一層-->
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ol>
+            <li></li>
+            <li></li>
+        </ol>
+
+        <!-- (ul>li*3)+(ol>li*2) -->
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ol>
+            <li></li>
+            <li></li>
+        </ol>
+
+
+
+
+
+</body>
+</html>
