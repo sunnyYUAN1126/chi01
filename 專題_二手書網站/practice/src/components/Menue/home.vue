@@ -6,7 +6,7 @@ import product from './products.vue';
 <template>
   <nav class="navbar bg-body-tertiary  navbar-expand-lg bg-body-tertiary fixed-top second-nav">
     <div class="container-fluid">
-      <a class="navbar-brand">Let's go~</a>
+      <a class="navbar-brand"></a>
 
 
     <ul class="nav nav-pills">
@@ -14,16 +14,19 @@ import product from './products.vue';
         <a class="nav-link active" aria-current="page" href="#">ALL</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">語言</a>
+        <a class="nav-link" href="#">文學與人文類</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">社會</a>
+        <a class="nav-link" href="#">社會科學類</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">理工</a>
+        <a class="nav-link" href="#">商業與管理類</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">自然</a>
+        <a class="nav-link" href="#">理工與資訊類</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">醫學與健康類</a>
       </li>
     </ul>          
     

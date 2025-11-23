@@ -12,9 +12,7 @@ var cart = ref([
 var groupedCart = computed(() => {
   const groups = {};
   cart.value.forEach(item => {
-    if (!groups[item.seller]) {
-      groups[item.seller] = [];
-    }
+    if (!groups[item.seller]) groups[item.seller] = [];
     groups[item.seller].push(item);
   });
   return groups;
@@ -28,8 +26,8 @@ function sellerSubtotal(items) {
 // 總金額
 var total = computed(() => cart.value.reduce((sum, item) => sum + item.price, 0));
 
-// 面交地點資料（每個賣家一個）
-var locations = ref({});
+// 面交資訊（每個賣家一個物件）
+var checkoutInfo = ref({});
 
 // 控制是否顯示確認頁
 var showCheckoutConfirm = ref(false);
@@ -41,33 +39,36 @@ function removeItem(index) {
 
 // 前往結帳
 function checkout() {
-  // 初始化每個賣家的面交地點
   Object.keys(groupedCart.value).forEach(seller => {
-    if (!locations.value[seller]) locations.value[seller] = '';
+    if (!checkoutInfo.value[seller]) {
+      checkoutInfo.value[seller] = { location: '', date: '', time: '' };
+    }
   });
   showCheckoutConfirm.value = true;
 }
 
 // 確認結帳
 function confirmCheckout() {
-  // 檢查每個賣家面交地點
   for (const seller of Object.keys(groupedCart.value)) {
-    if (!locations.value[seller]) {
-      alert(`請選擇 ${seller} 的面交地點！`);
+    const info = checkoutInfo.value[seller];
+    if (!info.location || !info.date || !info.time) {
+      alert(`請完整填寫 ${seller} 的面交地點、日期與時間！`);
       return;
     }
   }
+
   let message = `結帳成功！\n\n`;
   for (const seller of Object.keys(groupedCart.value)) {
-    message += `${seller} 小計 $${sellerSubtotal(groupedCart.value[seller])}，面交地點：${locations.value[seller]}\n`;
+    const info = checkoutInfo.value[seller];
+    message += `${seller} 小計 $${sellerSubtotal(groupedCart.value[seller])}\n`;
+    message += `面交地點：${info.location}\n面交日期：${info.date}\n面交時間：${info.time}\n\n`;
   }
-  message += `\n總金額 $${total.value}`;
+  message += `總金額 $${total.value}`;
   alert(message);
 
-  // 清空購物車
   cart.value = [];
   showCheckoutConfirm.value = false;
-  locations.value = {};
+  checkoutInfo.value = {};
 }
 </script>
 
@@ -84,7 +85,7 @@ function confirmCheckout() {
       </div>
 
       <div class="cart-summary">
-        <div>總金額：${{ total }}</div>
+        總金額：${{ total }}
       </div>
 
       <button class="btn-checkout" @click="checkout">前往結帳</button>
@@ -108,7 +109,17 @@ function confirmCheckout() {
 
         <div class="location-input">
           <label>面交地點：</label>
-          <input type="text" v-model="locations[seller]" placeholder="輸入面交地點" />
+          <input type="text" v-model="checkoutInfo[seller].location" placeholder="輸入面交地點" />
+        </div>
+
+        <div class="location-input">
+          <label>面交日期：</label>
+          <input type="date" v-model="checkoutInfo[seller].date" />
+        </div>
+
+        <div class="location-input">
+          <label>面交時間：</label>
+          <input type="time" v-model="checkoutInfo[seller].time" />
         </div>
 
         <hr />
@@ -119,6 +130,7 @@ function confirmCheckout() {
       </div>
 
       <button class="btn-checkout" @click="confirmCheckout">立即結帳</button>
+      <button class="btn-back" @click="showCheckoutConfirm = false">返回上一頁</button>
     </div>
   </div>
 </template>
@@ -131,6 +143,7 @@ function confirmCheckout() {
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: white;
+  margin-top: 100px;
 }
 
 .cart-item {
@@ -165,10 +178,15 @@ function confirmCheckout() {
   margin-top: 5px;
 }
 
+.location-input label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
 .location-input input {
   width: 100%;
   padding: 5px;
-  margin-top: 3px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
@@ -186,6 +204,21 @@ function confirmCheckout() {
 
 .btn-checkout:hover {
   background: #0069d9;
+}
+
+.btn-back {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  background: #5a6268;
 }
 
 hr {
