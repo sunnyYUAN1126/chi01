@@ -1,59 +1,74 @@
 <template>
-  <div class="page">
-    <h2>書籍管理</h2>
+  <div class="page container mt-4">
+    <h2 class="mb-4">書籍管理</h2>
 
-    <table border="1" cellpadding="6">
-      <thead>
-        <tr>
-          <th>ISBN</th>
-          <th>書名</th>
-          <th>分類</th>
-          <th>幾成新</th>
-          <th>有無筆記</th>
-          <th>書況描述</th>
-          <th>上架日期</th>
-          <th>二手價</th>
-          <th>圖片</th>
-          <th>管理員審核</th>
-          <th>管理員備註</th>
-          <th>上架狀態</th>
-          <th>操作</th>
-        </tr>
-      </thead>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>ISBN</th>
+            <th>書名</th>
+            <th>分類</th>
+            <th>幾成新</th>
+            <th>有無筆記</th>
+            <th>書況描述</th>
+            <th>上架日期</th>
+            <th>二手價</th>
+            <th>圖片</th>
+            <th>管理員審核</th>
+            <th>管理員備註</th>
+            <th>上架狀態</th>
+            <th>操作</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr v-for="(item, index) in sortedBooks" :key="index">
-          <td>{{ item.isbn }}</td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.category }}</td>
-          <td>{{ item.condition }} 成新</td>
-          <td>{{ item.notes }}</td>
-          <td>{{ item.description }}</td>
-          <td>{{ item.uploadTime }}</td>
-          <td>{{ item.price }}</td>
-          <td>
-            <div class="d-flex gap-2">
-              <img
-                v-for="(img, i) in item.images || []"
-                :key="i"
-                :src="img"
-                alt="preview"
-                style="width:60px; height:60px; object-fit:cover; border:1px solid #ccc; cursor:pointer;"
-                @click="openPreview(img)"
-              />
-            </div>
-          </td>
-          <td>{{ item.adminStatus }}</td>
-          <td>{{ item.adminNote }}</td>
-          <td :style="{ color: item.adminStatus === '審核通過' ? 'green' : item.adminStatus === '待審核' ? 'orange' : 'red' }">
-            {{ item.adminStatus === "審核通過" ? "上架" : "下架" }}
-          </td>
-          <td>
-            <button @click="deleteBook(index)">刪除</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          <tr v-for="(item, index) in sortedBooks" :key="index">
+            <td>{{ item.isbn }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.condition }} 成新</td>
+            <td>{{ item.notes }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.uploadTime }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+              <div class="d-flex gap-2 justify-content-center">
+                <img
+                  v-for="(img, i) in item.images || []"
+                  :key="i"
+                  :src="img"
+                  alt="preview"
+                  class="img-thumbnail"
+                  style="width:60px; height:60px; object-fit:cover; cursor:pointer;"
+                  @click="openPreview(img)"
+                />
+              </div>
+            </td>
+            <td>
+              <span :class="{
+                'badge bg-warning text-dark': item.adminStatus === '待審核',
+                'badge bg-success': item.adminStatus === '審核通過',
+                'badge bg-danger': item.adminStatus === '審核不通過'
+              }">
+                {{ item.adminStatus }}
+              </span>
+            </td>
+            <td>{{ item.adminNote }}</td>
+            <td :class="{ 
+              'text-success fw-bold': item.adminStatus === '審核通過', 
+              'text-warning fw-bold': item.adminStatus === '待審核', 
+              'text-danger fw-bold': item.adminStatus !== '審核通過' && item.adminStatus !== '待審核' 
+            }">
+              {{ item.adminStatus === "審核通過" ? "上架" : "下架" }}
+            </td>
+            <td>
+              <button class="btn btn-danger btn-sm" @click="deleteBook(index)">刪除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- 圖片放大 -->
     <div v-if="previewImage" class="preview-overlay" @click="closePreview">
@@ -101,17 +116,6 @@ function closePreview() {
 </script>
 
 <style scoped>
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 8px;
-  text-align: center;
-}
-button {
-  margin: 2px;
-}
 .preview-overlay {
   position: fixed;
   top: 0;

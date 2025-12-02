@@ -1,12 +1,15 @@
 <template>
   <div class="container mt-4">
-    <h2 class="mb-4">賣家上架的二手書審核</h2>
-    <table class="table table-hover table-bordered text-center align-middle">
+    <h2 class="mb-4 fw-bold">賣家上架的二手書審核</h2>
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered table-striped text-center align-middle">
       <thead class="table-dark">
         <tr>
           <th>會員帳號</th>
           <th>ISBN</th>
           <th>書名</th>
+          <th>書籍作者</th>
+          <th>書籍出版社</th>
           <th>分類</th>
           <th>幾成新</th>
           <th>有無筆記</th>
@@ -24,6 +27,8 @@
           <td>{{ book.user }}</td>
           <td>{{ book.isbn }}</td>
           <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.publisher }}</td>
           <td>{{ book.category }}</td>
           <td>{{ book.condition }}</td>
           <td>{{ book.notes }}</td>
@@ -36,7 +41,9 @@
               :key="i"
               :src="img"
               alt="book image"
-              style="width: 60px; height: 60px; object-fit: cover; border-radius: 5px; border: 1px solid #ccc;"
+              class="img-thumbnail object-fit-cover"
+              style="width: 60px; height: 60px; cursor: pointer;"
+              @click="openModal(img)"
             />
           </td>
           <td>
@@ -48,7 +55,23 @@
           </td>
         </tr>
       </tbody>
-    </table>
+      </table>
+    </div>
+
+    <!-- Image Modal -->
+    <div v-if="showModal" class="modal fade show" tabindex="-1" style="display: block; background-color: rgba(0,0,0,0.5);" @click.self="closeModal">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">圖片預覽</h5>
+            <button type="button" class="btn-close" @click="closeModal"></button>
+          </div>
+          <div class="modal-body text-center">
+            <img :src="currentImage" class="img-fluid" alt="Enlarged view">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -60,6 +83,8 @@ const books = ref([
     user: "user001",
     isbn: "9789861234560",
     title: "資料庫系統概論",
+    author: "Date, C. J.",
+    publisher: "Pearson",
     category: "商業與管理類",
     condition: "九成新",
     notes: "無筆記",
@@ -77,6 +102,8 @@ const books = ref([
     user: "user002",
     isbn: "9789866543210",
     title: "Java 程式設計",
+    author: "Liang, Y. Daniel",
+    publisher: "Pearson",
     category: "社會科學類",
     condition: "七成新",
     notes: "有筆記",
@@ -97,5 +124,19 @@ const approve = (book) => {
 
 const reject = (book) => {
   alert(`已拒絕：${book.user} 的書籍上架`)
+}
+
+// Modal logic
+const showModal = ref(false)
+const currentImage = ref("")
+
+const openModal = (img) => {
+  currentImage.value = img
+  showModal.value = true
+}
+
+const closeModal = () => {
+  showModal.value = false
+  currentImage.value = ""
 }
 </script>

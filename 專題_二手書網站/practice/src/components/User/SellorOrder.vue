@@ -1,110 +1,109 @@
 <template>
-  <div class="p-6 bg-gray-100 min-h-screen" >
+  <div class="container mt-4" >
     <!-- 切換按鈕 -->
-    <div class="mb-6 space-x-4" style="margin: 50px;">
+    <!-- 切換按鈕 -->
+    <div class="mb-4 d-flex gap-2 my-5">
       <button
         @click="currentTab = 'current'"
-        :class="currentTab === 'current' ? 'bg-black text-white' : 'bg-gray-300 text-black'"
-        class="px-4 py-2 rounded shadow"
+        :class="currentTab === 'current' ? 'btn btn-dark' : 'btn btn-outline-dark'"
       >
         目前訂單
       </button>
       <button
         @click="currentTab = 'history'"
-        :class="currentTab === 'history' ? 'bg-black text-white' : 'bg-gray-300 text-black'"
-        class="px-4 py-2 rounded shadow"
+        :class="currentTab === 'history' ? 'btn btn-dark' : 'btn btn-outline-dark'"
       >
         交易歷史
       </button>
     </div>
 
     <!-- 目前訂單 -->
-    <div v-show="currentTab === 'current'" class="overflow-x-auto mb-8">
-      <h3 class="text-xl font-bold mb-4">目前訂單</h3>
-      <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-        <thead class="bg-gray-200">
+    <div v-show="currentTab === 'current'" class="table-responsive mb-4">
+      <h3 class="fw-bold mb-4">目前訂單</h3>
+      <table class="table table-striped table-hover table-bordered text-center align-middle">
+        <thead class="table-light">
           <tr>
-            <th class="py-2 px-4 text-left">訂單編號</th>
-            <th class="py-2 px-4 text-left">訂單用戶</th>
-            <th class="py-2 px-4 text-left">書籍名稱</th>
-            <th class="py-2 px-4 text-left">isbn</th>
-            <th class="py-2 px-4 text-left">訂單金額</th>
-            <th class="py-2 px-4 text-left">面交地點</th>
-            <th class="py-2 px-4 text-left">面交日期</th>
-            <th class="py-2 px-4 text-left">面交時間</th>
-            <th class="py-2 px-4 text-left">訂單狀態</th>
-            <th class="py-2 px-4 text-left">下單日期</th>
+            <th>訂單編號</th>
+            <th>訂單用戶</th>
+            <th>書籍名稱</th>
+            <th>isbn</th>
+            <th>訂單金額</th>
+            <th>面交地點</th>
+            <th>面交日期</th>
+            <th>面交時間</th>
+            <th>訂單狀態</th>
+            <th>下單日期</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in currentOrders" :key="order.id" class="border-b hover:bg-gray-50">
-            <td class="py-2 px-4">{{ order.orderNo }}</td>
-            <td class="py-2 px-4">{{ order.user }}</td>
-            <td class="py-2 px-4">{{ order.bookName }}</td>
-            <td class="py-2 px-4">{{ order.isbn }}</td>
-            <td class="py-2 px-4">{{ order.amount }}</td>
-            <td class="py-2 px-4">{{ order.location }}</td>
-            <td class="py-2 px-4">{{ order.date }}</td>
-            <td class="py-2 px-4">{{ order.time }}</td>
-            <td class="py-2 px-4">
+          <tr v-for="order in currentOrders" :key="order.id">
+            <td>{{ order.orderNo }}</td>
+            <td>{{ order.user }}</td>
+            <td>{{ order.bookName }}</td>
+            <td>{{ order.isbn }}</td>
+            <td>{{ order.amount }}</td>
+            <td>{{ order.location }}</td>
+            <td>{{ order.date }}</td>
+            <td>{{ order.time }}</td>
+            <td>
               <select 
                 v-model="order.status" 
                 @change="handleStatusChange(order)" 
                 :disabled="order.status !== '代面交'"
-                class="border rounded px-2 py-1"
+                class="form-select form-select-sm"
               >
                 <option>代面交</option>
                 <option>交易完成</option>
                 <option>取消</option>
               </select>
             </td>
-            <td class="py-2 px-4">{{ order.orderDate }}</td>
+            <td>{{ order.orderDate }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <!-- 歷史訂單 -->
-    <div v-show="currentTab === 'history'" class="overflow-x-auto">
-      <h3 class="text-xl font-bold mb-4">交易歷史</h3>
-      <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-        <thead class="bg-gray-200">
+    <div v-show="currentTab === 'history'" class="table-responsive">
+      <h3 class="fw-bold mb-4">交易歷史</h3>
+      <table class="table table-striped table-hover table-bordered text-center align-middle">
+        <thead class="table-light">
           <tr>
-            <th class="py-2 px-4 text-left">訂單編號</th>
-            <th class="py-2 px-4 text-left">訂單用戶</th>
-            <th class="py-2 px-4 text-left">書籍名稱</th>
-            <th class="py-2 px-4 text-left">isbn</th>
-            <th class="py-2 px-4 text-left">訂單金額</th>
-            <th class="py-2 px-4 text-left">面交地點</th>
-            <th class="py-2 px-4 text-left">面交日期</th>
-            <th class="py-2 px-4 text-left">面交時間</th>
-            <th class="py-2 px-4 text-left">訂單狀態</th>
-            <th class="py-2 px-4 text-left">下單日期</th>
+            <th>訂單編號</th>
+            <th>訂單用戶</th>
+            <th>書籍名稱</th>
+            <th>isbn</th>
+            <th>訂單金額</th>
+            <th>面交地點</th>
+            <th>面交日期</th>
+            <th>面交時間</th>
+            <th>訂單狀態</th>
+            <th>下單日期</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in historyOrders" :key="order.id" class="border-b hover:bg-gray-50">
-            <td class="py-2 px-4">{{ order.orderNo }}</td>
-            <td class="py-2 px-4">{{ order.user }}</td>
-            <td class="py-2 px-4">{{ order.bookName }}</td>
-            <td class="py-2 px-4">{{ order.isbn }}</td>
-            <td class="py-2 px-4">{{ order.amount }}</td>
-            <td class="py-2 px-4">{{ order.location }}</td>
-            <td class="py-2 px-4">{{ order.date }}</td>
-            <td class="py-2 px-4">{{ order.time }}</td>
-            <td class="py-2 px-4">
+          <tr v-for="order in historyOrders" :key="order.id">
+            <td>{{ order.orderNo }}</td>
+            <td>{{ order.user }}</td>
+            <td>{{ order.bookName }}</td>
+            <td>{{ order.isbn }}</td>
+            <td>{{ order.amount }}</td>
+            <td>{{ order.location }}</td>
+            <td>{{ order.date }}</td>
+            <td>{{ order.time }}</td>
+            <td>
               <span 
                 :class="{
-                  'text-yellow-600': order.status === '代面交',
-                  'text-green-600': order.status === '交易完成',
-                  'text-red-600': order.status === '取消'
+                  'text-warning': order.status === '代面交',
+                  'text-success': order.status === '交易完成',
+                  'text-danger': order.status === '取消'
                 }"
-                class="font-semibold"
+                class="fw-bold"
               >
                 {{ order.status }}
               </span>
             </td>
-            <td class="py-2 px-4">{{ order.orderDate }}</td>
+            <td>{{ order.orderDate }}</td>
           </tr>
         </tbody>
       </table>

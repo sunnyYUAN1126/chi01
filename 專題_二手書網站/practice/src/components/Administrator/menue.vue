@@ -23,12 +23,6 @@ function switchPage(page) {
         書籍審核
       </a>
 
-      <a class="nav-link"
-         :class="{ active: currentPage === 'review1' }"
-         @click="switchPage('review')">
-        新增圖書館
-      </a>
-
     </nav>
 
     <!-- 主要內容 -->

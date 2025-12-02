@@ -98,15 +98,15 @@ function switchPage(page) {
 }
 
 .side-nav .nav-link:hover {
-  background-color: #ffe0f0;
-  color: #d63384;
+  background-color: #a1e1ee;
+  color: #3349d6;
 }
 
 /* active 狀態（你點到的那頁） */
 .side-nav .nav-link.active {
-  background-color: #ffd6ef;
+  background-color: #c0b5ea;
   font-weight: bold;
-  color: #c2185b;
+  color: #7245e4;
 }
 
 /* 右側內容 */

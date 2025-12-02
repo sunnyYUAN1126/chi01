@@ -1,5 +1,22 @@
 <script setup>
+import { ref, provide } from 'vue';
 import product from './products.vue';
+
+// 暴露重置商品詳細頁的方法
+const resetProductView = () => {
+  if (productRef.value) {
+    productRef.value.goBack();
+  }
+}
+
+const productRef = ref(null);
+provide('resetProductView', resetProductView);
+provide('productRef', productRef);
+
+// 暴露 productRef 給父組件使用
+defineExpose({
+  productRef
+})
 
 </script>
 
@@ -41,7 +58,7 @@ import product from './products.vue';
     </div>
   </nav>
 
-  <product/>
+  <product ref="productRef"/>
 
              
 

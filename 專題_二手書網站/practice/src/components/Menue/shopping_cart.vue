@@ -29,6 +29,26 @@ var total = computed(() => cart.value.reduce((sum, item) => sum + item.price, 0)
 // 面交資訊（每個賣家一個物件）
 var checkoutInfo = ref({});
 
+// 面交地點選項
+const meetingPlaces = [
+  '管院前門',
+  '文學院前門',
+  '理學院前門',
+  '醫學院前門'
+];
+
+// 面交時間選項
+const meetingTimes = [
+  '第一節下課',
+  '第二節下課',
+  '第三節下課',
+  '第四節下課',
+  '第五節下課',
+  '第六節下課',
+  '第七節下課',
+  '第八節下課'
+];
+
 // 控制是否顯示確認頁
 var showCheckoutConfirm = ref(false);
 
@@ -109,7 +129,12 @@ function confirmCheckout() {
 
         <div class="location-input">
           <label>面交地點：</label>
-          <input type="text" v-model="checkoutInfo[seller].location" placeholder="輸入面交地點" />
+          <select v-model="checkoutInfo[seller].location">
+            <option disabled value="">請選擇面交地點</option>
+            <option v-for="place in meetingPlaces" :key="place" :value="place">
+              {{ place }}
+            </option>
+          </select>
         </div>
 
         <div class="location-input">
@@ -119,7 +144,12 @@ function confirmCheckout() {
 
         <div class="location-input">
           <label>面交時間：</label>
-          <input type="time" v-model="checkoutInfo[seller].time" />
+          <select v-model="checkoutInfo[seller].time">
+            <option disabled value="">請選擇面交時間</option>
+            <option v-for="time in meetingTimes" :key="time" :value="time">
+              {{ time }}
+            </option>
+          </select>
         </div>
 
         <hr />
@@ -184,7 +214,8 @@ function confirmCheckout() {
   margin-bottom: 3px;
 }
 
-.location-input input {
+.location-input input,
+.location-input select {
   width: 100%;
   padding: 5px;
   border-radius: 5px;

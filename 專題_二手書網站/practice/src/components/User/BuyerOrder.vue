@@ -1,52 +1,51 @@
 <template>
-  <div class="p-6 bg-gray-100 min-h-screen">
-    <h2 class="text-2xl font-bold mb-6 text-center">我的訂單</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-        <thead class="bg-gray-200">
+  <div class="container mt-4">
+    <h2 class="text-center fw-bold mb-4">我的訂單</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover text-center align-middle">
+        <thead class="table-dark">
           <tr>
-            <th class="py-2 px-4 text-left">訂單編號</th>
-            <th class="py-2 px-4 text-left">賣家用戶</th>
-            <th class="py-2 px-4 text-left">書籍名稱</th>
-            <th class="py-2 px-4 text-left">isbn</th>
-            <th class="py-2 px-4 text-left">訂單金額</th>
-            <th class="py-2 px-4 text-left">面交地點</th>
-            <th class="py-2 px-4 text-left">面交日期</th>
-            <th class="py-2 px-4 text-left">面交時間</th>
-            <th class="py-2 px-4 text-left">訂單狀態</th>
-            <th class="py-2 px-4 text-left">下單日期</th>
-            <th class="py-2 px-4 text-left">取消訂單</th>
+            <th>訂單編號</th>
+            <th>賣家用戶</th>
+            <th>書籍名稱</th>
+            <th>isbn</th>
+            <th>訂單金額</th>
+            <th>面交地點</th>
+            <th>面交日期</th>
+            <th>面交時間</th>
+            <th>訂單狀態</th>
+            <th>下單日期</th>
+            <th>取消訂單</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in orders" :key="order.id" class="border-b hover:bg-gray-50">
-            <td class="py-2 px-4">{{ order.orderNo }}</td>
-            <td class="py-2 px-4">{{ order.sellerName }}</td>
-            <td class="py-2 px-4">{{ order.bookName }}</td>
-            <td class="py-2 px-4">{{ order.isbn }}</td>
-            <td class="py-2 px-4">{{ order.amount }}</td>
-            <td class="py-2 px-4">{{ order.location }}</td>
-            <td class="py-2 px-4">{{ order.date }}</td>
-            <td class="py-2 px-4">{{ order.time }}</td>
-            <td class="py-2 px-4">
+          <tr v-for="order in orders" :key="order.id">
+            <td>{{ order.orderNo }}</td>
+            <td>{{ order.sellerName }}</td>
+            <td>{{ order.bookName }}</td>
+            <td>{{ order.isbn }}</td>
+            <td>{{ order.amount }}</td>
+            <td>{{ order.location }}</td>
+            <td>{{ order.date }}</td>
+            <td>{{ order.time }}</td>
+            <td>
               <span 
                 :class="{
-                  'text-yellow-600': order.status === '代面交',
-                  'text-green-600': order.status === '交易完成',
-                  'text-red-600': order.status === '取消'
+                  'badge bg-warning text-dark': order.status === '代面交',
+                  'badge bg-success': order.status === '交易完成',
+                  'badge bg-danger': order.status === '取消'
                 }"
-                class="font-semibold"
               >
                 {{ order.status }}
               </span>
             </td>
-            <td class="py-2 px-4">{{ order.orderDate }}</td>
-            <td class="py-2 px-4">
+            <td>{{ order.orderDate }}</td>
+            <td>
               <!-- 只有代面交才顯示 -->
               <button 
                 v-if="order.status === '代面交'"   
                 @click="cancelOrder(order)" 
-                class="bg-white text-black border border-black px-3 py-1 rounded hover:bg-gray-200"
+                class="btn btn-outline-dark btn-sm"
               >
                 取消訂單
               </button>
